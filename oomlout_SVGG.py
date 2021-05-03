@@ -179,7 +179,10 @@ def toPDF(inFile, outFile):
     #print("                Executing: " + executeString)
     subprocess.call(executeString)
     
-
+def toPNG(inFile, outFile):
+    executeString = "inkscape.exe --export-type=\"png\" --export-filename=\"" + outFile + "\" \"" + inFile + "\""
+    #print("                Executing: " + executeString)
+    subprocess.call(executeString)
 
     
 
