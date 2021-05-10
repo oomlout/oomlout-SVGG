@@ -174,15 +174,23 @@ def searchAndReplaceSVGStrict(loi,inFile,outFile):
     f.write(contents)
     f.close
                                                         
-def toPDF(inFile, outFile):
+def toPDF(inFile, outFile, wait=False):
     executeString = "inkscape.exe --export-filename=\"" + outFile + "\" \"" + inFile + "\""
     #print("                Executing: " + executeString)
-    subprocess.call(executeString)
+    if wait:
+        subprocess.call(executeString)
+    else:
+        subprocess.Popen(executeString)
+            
+                
     
-def toPNG(inFile, outFile):
+def toPNG(inFile, outFile, wait=False):
     executeString = "inkscape.exe --export-type=\"png\" --export-filename=\"" + outFile + "\" \"" + inFile + "\""
     #print("                Executing: " + executeString)
-    subprocess.call(executeString)
+    if wait:
+        subprocess.call(executeString)
+    else:
+        subprocess.Popen(executeString)
 
     
 
