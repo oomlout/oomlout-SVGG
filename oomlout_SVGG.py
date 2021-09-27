@@ -190,7 +190,7 @@ def toPNG(inFile, outFile, wait=False):
     if wait:
         subprocess.call(executeString)
     else:
-        subprocess.Popen(executeString)
+        subprocess.run(executeString, timeout=300)
 
     
 
